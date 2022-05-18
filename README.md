@@ -10,6 +10,8 @@ In the project directory, you can run:
 
 Use npm install to install all the necessary dependencies
 
+The Api key can be imported from secret/key.js which should export your personal Api key. You can also use an env with key OPENAI_SECRET and value Api key. Line 39 in Input.js accept the locally imported Key
+
 ### `npm start`
 
 Running npm start runs the app locally

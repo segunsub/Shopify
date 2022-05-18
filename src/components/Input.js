@@ -36,7 +36,7 @@ function Input({setResponse}) {
             headers: {
               "Content-Type": "application/json",
               //Key is imported from secret/Key.js and process key is on heroku
-              Authorization: `Bearer ${Key || process.env.OPENAI_SECRET}`,
+              Authorization: `Bearer ${process.env.OPENAI_SECRET}`,
             },
             body: JSON.stringify(data),
            }).then(response => {
