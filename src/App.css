@@ -1,7 +1,37 @@
 .App {
-  text-align: center;
+  display:flex;
+  justify-content: center;
 }
-
+.Page {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 60%;
+}
+h5 {
+  width: 90px;
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 20px;
+}
+.response {
+  width: 80%;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.responseDiv {
+  display: flex;
+}
+button {
+  width: '30%';
+}
+.mb-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
