@@ -13,6 +13,7 @@ function Input({setResponse}) {
     const [loading, setLoading] = useState(false);
     /*fetchApi function to fetch data from api and update loading state
     also update the local storage with the response */
+    console.log(process.env.Key,'why is it not working')
     useEffect(() => {
         if (isEditing ) {
           editFieldRef.current.focus();
