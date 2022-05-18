@@ -1,14 +1,25 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect,useRef} from 'react'
 import { Form,FloatingLabel,Button } from 'react-bootstrap';
 import Key from '../secret/Key'
 
 function Input({setResponse}) {
+    //for accessing the input field
+    const editFieldRef = useRef(null);
+    const editButtonRef = useRef(null);
+    const [isEditing, setIsEditing] = useState(false);
     //input search value state
     const [value, setValue] = useState('');
     //loading state to show user that the app is loading
     const [loading, setLoading] = useState(false);
     /*fetchApi function to fetch data from api and update loading state
     also update the local storage with the response */
+    useEffect(() => {
+        if (isEditing ) {
+          editFieldRef.current.focus();
+        } else if (isEditing && value.length){
+          editButtonRef.current.focus();
+        }
+      }, [isEditing,value]);
     const fetchApi = () => {
         setLoading(true);
         const data = {
@@ -47,8 +58,10 @@ function Input({setResponse}) {
             placeholder="Leave a comment here" 
             style={{ height: '150px', marginBottom: '3px' }}
             value={value}
-            onChange={(e) => setValue(e.target.value)}/>
-            <Button variant="primary" type="submit" onClick={fetchApi}>{loading ? 'Loading...' : 'Submit'}</Button>
+            ref={editFieldRef}
+            onMouseOut={e => setIsEditing(false)}
+            onChange={(e) => {setValue(e.target.value);setIsEditing(true)}}/>
+            <Button variant="primary" type="submit" ref={editButtonRef} onClick={fetchApi}>{loading ? 'Loading...' : 'Submit'}</Button>
         </FloatingLabel>
     </>
   )
