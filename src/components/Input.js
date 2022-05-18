@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useRef} from 'react'
 import { Form,FloatingLabel,Button } from 'react-bootstrap';
-import Key from '../secret/Key'
+// import Key from '../secret/Key'
 
 function Input({setResponse}) {
     //for accessing the input field
