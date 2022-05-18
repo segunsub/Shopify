@@ -32,7 +32,7 @@ function Input({setResponse}) {
                return response.json();
               }).then(data => {
                 setResponse(prev => {
-                    const response = [...prev,[value,data.choices[0].text]]
+                    const response = [[value,data.choices[0].text],...prev]
                     localStorage.setItem('response', JSON.stringify(response));
                     return response
                 });
