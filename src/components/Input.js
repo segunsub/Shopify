@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useRef} from 'react'
 import { Form,FloatingLabel,Button } from 'react-bootstrap';
-// import Key from '../secret/Key'
+
 
 function Input({setResponse}) {
     //for accessing the input field
@@ -13,7 +13,6 @@ function Input({setResponse}) {
     const [loading, setLoading] = useState(false);
     /*fetchApi function to fetch data from api and update loading state
     also update the local storage with the response */
-    console.log(process.env.Key,'why is it not working')
     useEffect(() => {
         if (isEditing ) {
           editFieldRef.current.focus();
@@ -37,7 +36,7 @@ function Input({setResponse}) {
             headers: {
               "Content-Type": "application/json",
               //Key is imported from secret/Key.js and process key is on heroku
-              Authorization: `Bearer ${process.env.Key}`,
+              Authorization: `Bearer ${process.env.REACT_APP_OpenAi_Key}`,
             },
             body: JSON.stringify(data),
            }).then(response => {
